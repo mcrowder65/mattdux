@@ -1,3 +1,6 @@
+[![Build Status][travis-image]][travis-url]
+[![Coverage Status][coveralls-image]][coveralls-url]
+
 [travis-image]: https://travis-ci.org/mcrowder65/mattdux.svg?branch=master
 [travis-url]: https://travis-ci.org/mcrowder65/mattdux
 
