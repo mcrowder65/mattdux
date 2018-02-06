@@ -3,6 +3,6 @@
   "globals": {
     "expect": true,
     "test": true,
-    "define": true
+    "describe": true
   }
 }

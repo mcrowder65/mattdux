@@ -1,5 +1,7 @@
 import {Store} from "../src/store";
 
+const two = 2;
+
 describe("test/store.spec.js", () => {
     describe("constructor", () => {
         test("initialize reducers", () => {
@@ -59,13 +61,12 @@ describe("test/store.spec.js", () => {
             };
             const store = new Store(myReducers, initialState);
             expect(store.state).toEqual(initialState);
-            const message = "a new message";
             const action = {
                 type: "REMOVE_MESSAGE",
                 messageId: "messageTwo"
             };
             store.fireAction(action);
-            expect(store.state.messages).toEqual([initialState.messages[0], initialState.messages[2]]);
+            expect(store.state.messages).toEqual([initialState.messages[0], initialState.messages[two]]);
         });
         test("just a function", () => {
             const rootReducer = (state, action) => {
@@ -96,7 +97,7 @@ describe("test/store.spec.js", () => {
                 messageId: "messageTwo"
             };
             store.fireAction(action);
-            expect(store.state.messages).toEqual([initialState.messages[0], initialState.messages[2]]);
+            expect(store.state.messages).toEqual([initialState.messages[0], initialState.messages[two]]);
         });
     });
 });

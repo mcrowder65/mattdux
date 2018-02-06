@@ -7,7 +7,6 @@ export class Store {
 
     fireAction(action) {
         //TODO create an action checker
-        console.log(typeof this.reducers);
         if (typeof this.reducers === "function") {
             // just a root function
             this.state = this.reducers(this.state, action);
