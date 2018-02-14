@@ -8,7 +8,7 @@ class Provider extends React.Component {
 
     getChildContext() {
         return {
-            message: "hello world!"
+            store: this.props.store
         };
     }
 
@@ -22,6 +22,6 @@ Provider.propTypes = {
     store: PropTypes.any
 };
 Provider.childContextTypes = {
-    message: PropTypes.string
+    store: PropTypes.any
 };
 export default Provider;

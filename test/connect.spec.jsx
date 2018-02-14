@@ -33,7 +33,7 @@ describe("test/connect.spec.jsx", () => {
         };
         const store = new Store(myReducers, initialState);
         const provided = mount(
-            <Provider>
+            <Provider store={store}>
                 <Comp/>
             </Provider>
         );

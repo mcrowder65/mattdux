@@ -11,6 +11,6 @@ const Comp = (props, context) => {
 };
 
 Comp.contextTypes = {
-    message: PropTypes.string
+    store: PropTypes.any
 };
 export default Comp;
