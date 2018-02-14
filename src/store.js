@@ -11,7 +11,6 @@ export class Store {
             // just a root function
             this.state = this.reducers(this.state, action);
         } else {
-
             this.state = Object.keys(this.reducers).reduce((accum, reducerKey) => {
                 const reducer = this.reducers[reducerKey];
                 return {

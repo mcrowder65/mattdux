@@ -1,8 +1,14 @@
 {
-  "extends": "walmart",
+  "extends": [
+    "walmart",
+    "plugin:react/recommended"
+  ],
   "globals": {
     "expect": true,
     "test": true,
     "describe": true
+  },
+  "rules": {
+    "eol-last": "off"
   }
 }
