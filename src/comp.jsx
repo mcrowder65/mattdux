@@ -1,11 +1,16 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const Comp = () => {
+const Comp = (props, context) => {
+    console.log(context);
     return (
         <div>
-            Hello world
+            {context.message}
         </div>
     );
 };
 
+Comp.contextTypes = {
+    message: PropTypes.string
+};
 export default Comp;
