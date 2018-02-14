@@ -6,8 +6,8 @@
   "scripts": {
     "test": "npm run linter && npm run jest",
     "jest": "jest --coverage",
-    "lint-test": "eslint test",
-    "lint-src": "eslint src",
+    "lint-test": "eslint --ext .jsx,.js test",
+    "lint-src": "eslint --ext .jsx,.js src",
     "linter": "npm run lint-src && npm run lint-test",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
@@ -16,12 +16,13 @@
   "license": "ISC",
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.js"
+      "src/**/*.js*"
     ],
     "setupTestFrameworkScriptFile": "<rootDir>/test/jest/config.js"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
