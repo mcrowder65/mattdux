@@ -1,23 +1,34 @@
-export const createStore = function (reducers, state) {
-    let myState = state;
+export const createStore = function (reducers, initialState = {}) {
+    let state = initialState;
     const myReducers = reducers;
-    const fireAction = function (action) {
+
+    function getState() {
+        return state;
+    }
+
+    function dispatch(action) {
+        console.log(action);
+        console.log("stateBefore ", state);
         if (typeof myReducers === "function") {
             // just a root function
-            myState = myReducers(myState, action);
+            state = myReducers(state, action);
         } else {
-            myState = Object.keys(myReducers).reduce((accum, reducerKey) => {
+            state = Object.keys(myReducers).reduce((accum, reducerKey) => {
                 const reducer = myReducers[reducerKey];
                 return {
                     ...accum,
-                    [reducerKey]: reducer(myState[reducerKey], action)
+                    [reducerKey]: reducer(state[reducerKey], action)
                 };
-            }, myState);
+            }, state);
         }
-    };
+        console.log(state);
+        return action;
+    }
+
 
     return {
-        fireAction
+        dispatch,
+        getState
     };
 
 };

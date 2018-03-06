@@ -8,7 +8,8 @@ class Provider extends React.Component {
 
     getChildContext() {
         return {
-            store: this.props.store
+            dispatch: this.props.store.dispatch,
+            getState: this.props.store.getState
         };
     }
 
@@ -23,9 +24,13 @@ class Provider extends React.Component {
 
 Provider.propTypes = {
     children: PropTypes.any,
-    store: PropTypes.any
+    store: PropTypes.shape({
+        dispatch: PropTypes.func,
+        getState: PropTypes.func
+    })
 };
 Provider.childContextTypes = {
-    store: PropTypes.any
+    dispatch: PropTypes.func,
+    getState: PropTypes.func
 };
 export default Provider;
