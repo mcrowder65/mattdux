@@ -3,7 +3,7 @@ import {mount} from "enzyme";
 import Comp from "../src/comp";
 import {connect} from "../src/connect";
 import Provider from "../src/provider";
-import {Store} from "../src/store";
+import {createStore} from "../src/create-store";
 
 describe("test/connect.spec.jsx", () => {
     test("standard connect should make hi() return hi", () => {
@@ -31,7 +31,7 @@ describe("test/connect.spec.jsx", () => {
                 message: "this, three it is"
             }]
         };
-        const store = new Store(myReducers, initialState);
+        const store = new createStore(myReducers, initialState);
         const provided = mount(
             <Provider store={store}>
                 <Comp/>

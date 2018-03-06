@@ -1,4 +1,4 @@
-import {Store} from "../src/store";
+import {createStore} from "../src/create-store";
 
 const two = 2;
 
@@ -11,7 +11,7 @@ describe("test/store.spec.js", () => {
                 }
             };
 
-            const myStore = new Store(myReducers);
+            const myStore = new createStore(myReducers);
             expect(myStore.reducers).toEqual(myReducers);
         });
     });
@@ -28,7 +28,7 @@ describe("test/store.spec.js", () => {
             const initialState = {
                 message: "hello world"
             };
-            const store = new Store(myReducers, initialState);
+            const store = new createStore(myReducers, initialState);
             expect(store.state).toEqual(initialState);
             const message = "a new message";
             const action = {
@@ -59,7 +59,7 @@ describe("test/store.spec.js", () => {
                     message: "this, three it is"
                 }]
             };
-            const store = new Store(myReducers, initialState);
+            const store = new createStore(myReducers, initialState);
             expect(store.state).toEqual(initialState);
             const action = {
                 type: "REMOVE_MESSAGE",
@@ -90,7 +90,7 @@ describe("test/store.spec.js", () => {
                     message: "this, three it is"
                 }]
             };
-            const store = new Store(rootReducer, initialState);
+            const store = new createStore(rootReducer, initialState);
             expect(store.state).toEqual(initialState);
             const action = {
                 type: "REMOVE_MESSAGE",

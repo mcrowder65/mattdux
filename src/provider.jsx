@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 
 class Provider extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
     }
 
     getChildContext() {
@@ -13,7 +13,11 @@ class Provider extends React.Component {
     }
 
     render() {
-        return this.props.children;
+        return (
+            <div>
+                {this.props.children}
+            </div>
+        );
     }
 }
 
