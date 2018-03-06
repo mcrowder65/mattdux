@@ -1,16 +1,19 @@
-import React from "react";
+import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {connect} from "../../src/connect";
 import TextInput from "./text-input";
 import {setTextInput} from "../actions";
 
-const RootComponent = props => {
-    return (
-        <div>
-            <TextInput value={props.textInput} onChange={props.setTextInput}/>
-        </div>
-    );
-};
+class RootComponent extends Component {
+    render() {
+        return (
+            <div>
+                {this.props.textInput}<br/>
+                <TextInput value={this.props.textInput} onChange={this.props.setTextInput}/>
+            </div>
+        );
+    }
+}
 
 RootComponent.propTypes = {
     textInput: PropTypes.string,
@@ -18,13 +21,11 @@ RootComponent.propTypes = {
 };
 
 const mapStateToProps = state => {
-    console.log(state);
     return {
         textInput: state.textInput
     };
 };
 const mapDispatchToProps = dispatch => {
-    console.log("mapDispatchToProps");
     return {
         setTextInput: e => {
             dispatch(setTextInput(e.target.value));

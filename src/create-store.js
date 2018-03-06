@@ -1,14 +1,13 @@
 export const createStore = function (reducers, initialState = {}) {
     let state = initialState;
     const myReducers = reducers;
+    const subscriptions = [];
 
     function getState() {
         return state;
     }
 
     function dispatch(action) {
-        console.log(action);
-        console.log("stateBefore ", state);
         if (typeof myReducers === "function") {
             // just a root function
             state = myReducers(state, action);
@@ -21,14 +20,21 @@ export const createStore = function (reducers, initialState = {}) {
                 };
             }, state);
         }
-        console.log(state);
+        subscriptions.forEach(f => {
+            f();
+        });
         return action;
     }
 
+    function subscribe(f) {
+        subscriptions.push(f);
+    }
 
     return {
         dispatch,
-        getState
+        getState,
+        state,
+        subscribe
     };
 
 };

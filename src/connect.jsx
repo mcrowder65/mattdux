@@ -11,6 +11,10 @@ export const connect = (mapStateToProps, mapDispatchToProps) => ComponentToConne
             return mapDispatchToProps(this.context.dispatch);
         }
 
+        componentDidMount() {
+            this.context.subscribe(() => this.forceUpdate());
+        }
+
         render() {
             return (
                 <ComponentToConnect {...this.mapState()} {...this.mapDispatch()}/>
@@ -20,7 +24,8 @@ export const connect = (mapStateToProps, mapDispatchToProps) => ComponentToConne
 
     Connect.contextTypes = {
         dispatch: PropTypes.func,
-        getState: PropTypes.func
+        getState: PropTypes.func,
+        subscribe: PropTypes.func
     };
 
     return Connect;
