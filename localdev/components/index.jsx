@@ -4,6 +4,8 @@ import ReactLoader from "react-loader";
 
 import TextInput from "./text-input";
 import Button from "./button";
+import {connect} from "../../src/connect";
+import {hitServer, setTextInput} from "../actions";
 
 class RootComponent extends Component {
     render() {
@@ -33,4 +35,16 @@ RootComponent.defaultProps = {
     isFetching: false
 };
 
-export default RootComponent;
+const mapStateToProps = state => {
+    return {
+        ...state,
+        isFetching: state.fetchCount > 0
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        setTextInput: e => dispatch(setTextInput(e.target.value)),
+        onButtonClick: () => dispatch(hitServer())
+};
+export default connect(mapStateToProps, mapDispatchToProps)(RootComponent);

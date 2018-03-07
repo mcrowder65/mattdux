@@ -11,11 +11,17 @@ const rootReducer = (state, action) => {
     return state;
 };
 
-const store = createStore(rootReducer);
+
+const store = createStore(rootReducer, {});
 
 console.log(store.getState().input);
+
+store.dispatch({type: "SET", input: "hi"});
+console.log(store.getState().input);
+
 store.dispatch({type: "SET", input: "hello"});
 console.log(store.getState().input);
 
-store.dispatch({type: "SET", input: "hello world"});
+store.dispatch({});
+
 console.log(store.getState().input);
