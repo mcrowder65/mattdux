@@ -3,12 +3,13 @@ import PropTypes from "prop-types";
 
 const TextInput = props => {
     return (
-        <input type="text" value={props.value} onChange={props.onChange}/>
+        <input id={props._id} type="text" value={props.value} onChange={props.onChange}/>
     );
 };
 
 TextInput.propTypes = {
     value: PropTypes.string,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    _id: PropTypes.string
 };
 export default TextInput;

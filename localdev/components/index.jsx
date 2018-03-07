@@ -13,8 +13,8 @@ class RootComponent extends Component {
             <div>
                 <ReactLoader loaded={!this.props.isFetching} length={20} width={20}>
                     {this.props.textInput}<br/>
-                    <TextInput value={this.props.textInput} onChange={this.props.setTextInput}/>
-                    <Button _onClick={() => this.props.onButtonClick(this.props.textInput)}/>
+                    <TextInput _id="textfield" value={this.props.textInput} onChange={this.props.setTextInput}/>
+                    <Button _id="button" _onClick={() => this.props.onButtonClick(this.props.textInput)}/>
                     <br/>
                     {this.props.serverResponse}
                 </ReactLoader>

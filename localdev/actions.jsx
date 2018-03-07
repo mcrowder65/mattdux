@@ -1,3 +1,5 @@
+import "isomorphic-fetch";
+
 export const SET_TEXT_INPUT = "SET_TEXT_INPUT";
 export const ADD_FETCH_COUNT = "ADD_FETCH_COUNT";
 export const MINUS_FETCH_COUNT = "MINUS_FETCH_COUNT";
