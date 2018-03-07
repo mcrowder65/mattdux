@@ -10,15 +10,17 @@ export const addFetchCount = () => ({type: ADD_FETCH_COUNT});
 export const minusFetchCount = () => ({type: MINUS_FETCH_COUNT});
 export const setServerResponse = serverResponse => ({type: SET_SERVER_RESPONSE, serverResponse});
 
+const reverseThisWord = word => {
+    return fetch(`http://matthewjcrowder.com/reverse/${word}`, {
+        method: "GET"
+    }).json();
+};
 export const hitServer = () => {
     return async (dispatch, getState) => {
         try {
             dispatch(addFetchCount());
             const textInput = getState().textInput;
-            const unresolved = await fetch(`http://matthewjcrowder.com/reverse/${textInput}`, {
-                method: "GET"
-            });
-            const result = await unresolved.json();
+            const result = await reverseThisWord(textInput);
             dispatch(setServerResponse(result));
         } finally {
             dispatch(minusFetchCount());
