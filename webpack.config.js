@@ -1,5 +1,4 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const webpack = require("webpack");
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: "./localdev/index.html",
     filename: "./index.html",
@@ -30,13 +29,8 @@ module.exports = {
             loader: "style-loader!css-loader"
         }]
     },
-    devServer: {
-        hot: true
-    },
     plugins: [
-        HtmlWebpackPluginConfig,
-        new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin()
+        HtmlWebpackPluginConfig
     ]
 
 };

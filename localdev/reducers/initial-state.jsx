@@ -1,3 +1,5 @@
 export const initialState = {
-    textInput: "asdf"
+    textInput: "",
+    fetchCount: 0,
+    serverResponse: ""
 };

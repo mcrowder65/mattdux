@@ -8,21 +8,13 @@ export const createStore = function (reducers, initialState = {}) {
     }
 
     function dispatch(action) {
-        if (typeof myReducers === "function") {
+        if (typeof action === "function") {
+            return action(dispatch, getState);
+        } else if (typeof myReducers === "function") {
             // just a root function
             state = myReducers(state, action);
-        } else {
-            state = Object.keys(myReducers).reduce((accum, reducerKey) => {
-                const reducer = myReducers[reducerKey];
-                return {
-                    ...accum,
-                    [reducerKey]: reducer(state[reducerKey], action)
-                };
-            }, state);
         }
-        subscriptions.forEach(f => {
-            f();
-        });
+        subscriptions.forEach(f => f());
         return action;
     }
 
