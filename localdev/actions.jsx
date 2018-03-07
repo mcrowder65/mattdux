@@ -17,15 +17,3 @@ const reverseThisWord = async word => {
     });
     return unresolved.json();
 };
-export const hitServer = () => {
-    return async (dispatch, getState) => {
-        try {
-            dispatch(addFetchCount());
-            const textInput = getState().textInput;
-            const result = await reverseThisWord(textInput);
-            dispatch(setServerResponse(result));
-        } finally {
-            dispatch(minusFetchCount());
-        }
-    };
-};
