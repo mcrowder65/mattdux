@@ -6,9 +6,11 @@
   "globals": {
     "expect": true,
     "test": true,
-    "describe": true
+    "describe": true,
+    "fetch": true
   },
   "rules": {
-    "eol-last": "off"
+    "eol-last": "off",
+    "func-style": "off"
   }
 }
