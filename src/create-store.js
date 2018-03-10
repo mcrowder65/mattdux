@@ -1,4 +1,4 @@
-export function createStore(rootReducer, initialState) {
+export function createStore(rootReducer, initialState = {}) {
     let state = initialState;
     const reducers = rootReducer;
     const subscribers = [];
