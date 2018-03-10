@@ -1,7 +1,7 @@
 {
   "name": "mattdux",
   "version": "0.0.1",
-  "description": "",
+  "description": "Redux ripoff that comes with a react-redux connector and only supports thunk",
   "main": "src/index.js",
   "scripts": {
     "start": "webpack-dev-server",
@@ -12,8 +12,15 @@
     "linter": "npm run lint-src && npm run lint-test",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "redux",
+    "ripoff",
+    "lightweight",
+    "ES6",
+    "react",
+    "react-redux"
+  ],
+  "author": "mcrowder65",
   "license": "ISC",
   "jest": {
     "collectCoverageFrom": [
@@ -22,12 +29,11 @@
     "setupTestFrameworkScriptFile": "<rootDir>/test/jest/config.js"
   },
   "dependencies": {
-    "babel-cli": "^6.26.0",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react": "^16.2.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
     "babel-jest": "^22.2.2",
@@ -49,6 +55,7 @@
     "html-webpack-plugin": "^3.0.4",
     "isomorphic-fetch": "^2.2.1",
     "jest": "^21.2.1",
+    "react-dom": "^16.2.0",
     "react-loader": "^2.4.3",
     "style-loader": "^0.20.2",
     "webpack": "^3.11.0",
