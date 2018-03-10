@@ -1,6 +1,6 @@
 {
   "name": "mattdux",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Redux ripoff that comes with a react-redux connector and only supports thunk",
   "main": "lib/index.js",
   "repository": {
