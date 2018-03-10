@@ -34,7 +34,6 @@
     "setupTestFrameworkScriptFile": "<rootDir>/test/jest/config.js"
   },
   "dependencies": {
-    "generator-react-jest": "0.0.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0"
   },
