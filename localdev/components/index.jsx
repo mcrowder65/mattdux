@@ -4,8 +4,8 @@ import ReactLoader from "react-loader";
 
 import TextInput from "./text-input";
 import Button from "./button";
-import {connect} from "../../src/connect";
-import {addFetchCount, hitServer, minusFetchCount, reverseThisWord, setServerResponse, setTextInput} from "../actions";
+import {connect} from "../../src";
+import {hitServer, setTextInput} from "../actions";
 
 class RootComponent extends Component {
     render() {

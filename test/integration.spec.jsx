@@ -1,11 +1,10 @@
 import React from "react";
 import {mount} from "enzyme";
-import {createStore} from "../src/create-store";
-import {rootReducer} from "../localdev/reducers";
 import {initialState} from "../localdev/reducers/initial-state";
-import Provider from "../src/provider";
 
 import RootComponent from "../localdev/components/index";
+import {createStore, Provider} from "../src";
+import {rootReducer} from "../localdev/reducers";
 
 const pause = async time => {
     return new Promise(resolve => {
