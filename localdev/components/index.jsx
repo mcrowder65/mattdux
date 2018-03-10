@@ -2,10 +2,10 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import ReactLoader from "react-loader";
 
-import {connect} from "../../src/connect";
 import TextInput from "./text-input";
 import Button from "./button";
-import {hitServer, setTextInput} from "../actions";
+import {connect} from "../../src/connect";
+import {addFetchCount, hitServer, minusFetchCount, reverseThisWord, setServerResponse, setTextInput} from "../actions";
 
 class RootComponent extends Component {
     render() {
@@ -16,7 +16,7 @@ class RootComponent extends Component {
                     <TextInput _id="textfield" value={this.props.textInput} onChange={this.props.setTextInput}/>
                     <Button _id="button" _onClick={() => this.props.onButtonClick(this.props.textInput)}/>
                     <br/>
-                    {this.props.serverResponse}
+                    <b>Server Response: </b>{this.props.serverResponse}
                 </ReactLoader>
             </div>
         );
@@ -42,11 +42,10 @@ const mapStateToProps = state => {
         serverResponse: state.serverResponse
     };
 };
+
 const mapDispatchToProps = dispatch => {
     return {
-        setTextInput: e => {
-            dispatch(setTextInput(e.target.value));
-        },
+        setTextInput: e => dispatch(setTextInput(e.target.value)),
         onButtonClick: () => dispatch(hitServer())
     };
 };

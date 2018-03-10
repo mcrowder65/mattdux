@@ -1,16 +1,12 @@
-import React from "react";
+import React, {Component} from "react";
 import PropTypes from "prop-types";
 
-class Provider extends React.Component {
-    constructor(props, c) {
-        super(props, c);
-    }
-
+class Provider extends Component {
     getChildContext() {
         return {
             dispatch: this.props.store.dispatch,
-            getState: this.props.store.getState,
-            subscribe: this.props.store.subscribe
+            subscribe: this.props.store.subscribe,
+            getState: this.props.store.getState
         };
     }
 
@@ -27,13 +23,14 @@ Provider.propTypes = {
     children: PropTypes.any,
     store: PropTypes.shape({
         dispatch: PropTypes.func,
-        getState: PropTypes.func,
-        subscribe: PropTypes.func
+        subscribe: PropTypes.func,
+        getState: PropTypes.func
     })
 };
+
 Provider.childContextTypes = {
     dispatch: PropTypes.func,
-    getState: PropTypes.func,
-    subscribe: PropTypes.func
+    subscribe: PropTypes.func,
+    getState: PropTypes.func
 };
 export default Provider;
