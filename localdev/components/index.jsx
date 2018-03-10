@@ -4,6 +4,8 @@ import ReactLoader from "react-loader";
 
 import TextInput from "./text-input";
 import Button from "./button";
+import {connect} from "../../src/connect";
+import {addFetchCount, hitServer, minusFetchCount, reverseThisWord, setServerResponse, setTextInput} from "../actions";
 
 class RootComponent extends Component {
     render() {
@@ -11,10 +13,10 @@ class RootComponent extends Component {
             <div>
                 <ReactLoader loaded={!this.props.isFetching} length={20} width={20}>
                     {this.props.textInput}<br/>
-                    <TextInput value={this.props.textInput} onChange={this.props.setTextInput}/>
+                    <TextInput value={this.props.textInput} onChange={e => this.props.setTextInput(e.target.value)}/>
                     <Button _onClick={() => this.props.onButtonClick(this.props.textInput)}/>
                     <br/>
-                    {this.props.serverResponse}
+                    <b>Server Response: </b>{this.props.serverResponse}
                 </ReactLoader>
             </div>
         );
@@ -33,4 +35,18 @@ RootComponent.defaultProps = {
     isFetching: false
 };
 
-export default RootComponent;
+const mapStateToProps = state => {
+    return {
+        textInput: state.textInput,
+        isFetching: state.fetchCount > 0,
+        serverResponse: state.serverResponse
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        setTextInput: textInput => dispatch(setTextInput(textInput)),
+        onButtonClick: () => dispatch(hitServer())
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(RootComponent);

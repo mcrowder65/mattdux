@@ -11,9 +11,20 @@ export const minusFetchCount = () => ({type: MINUS_FETCH_COUNT});
 export const setServerResponse = serverResponse => ({type: SET_SERVER_RESPONSE, serverResponse});
 
 //eslint-disable-next-line
-const reverseThisWord = async word => {
+export const reverseThisWord = async word => {
     const unresolved = await fetch(`http://matthewjcrowder.com/reverse/${word}`, {
         method: "GET"
     });
     return unresolved.json();
+};
+
+
+export const hitServer = () => {
+    return async (dispatch, getState) => {
+        dispatch(addFetchCount());
+        const {textInput} = getState();
+        const reversed = await reverseThisWord(textInput);
+        dispatch(setServerResponse(reversed));
+        dispatch(minusFetchCount());
+    };
 };

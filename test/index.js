@@ -1,21 +1,8 @@
 import {createStore} from "../src/create-store";
+import {rootReducer} from "../localdev/reducers";
+import {initialState} from "../localdev/reducers/initial-state";
+import {SET_TEXT_INPUT} from "../localdev/actions";
 
-const rootReducer = (state, action) => {
-    if (action.type === "SET") {
-        return {
-            ...state,
-            input: action.input
-        };
-    }
 
-    return state;
-};
+const store = createStore(rootReducer, initialState);
 
-const store = createStore(rootReducer);
-
-console.log(store.getState().input);
-store.dispatch({type: "SET", input: "hello"});
-console.log(store.getState().input);
-
-store.dispatch({type: "SET", input: "hello world"});
-console.log(store.getState().input);
