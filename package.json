@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Redux ripoff that comes with a react-redux connector and only supports thunk",
   "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcrowder65/mattdux"
+  },
   "scripts": {
     "start": "webpack-dev-server",
     "test": "npm run linter && npm run jest",
