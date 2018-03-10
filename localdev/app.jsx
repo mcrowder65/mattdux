@@ -2,18 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "babel-polyfill";
 
+
+import RootComponent from "./components/index";
 import Provider from "../src/provider";
 import {createStore} from "../src/create-store";
 import {rootReducer} from "./reducers";
 import {initialState} from "./reducers/initial-state";
 
-import RootComponent from "./components/index";
-
-const myStore = createStore(rootReducer, initialState);
-
+const store = createStore(rootReducer, initialState);
 const App = () => (
     <div>
-        <Provider store={myStore}>
+        <Provider store={store}>
             <RootComponent/>
         </Provider>
     </div>
